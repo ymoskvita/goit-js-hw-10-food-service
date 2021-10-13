@@ -7,8 +7,6 @@ const STORAGE_KEY = 'theme';
 
 themeSwitcher.addEventListener('click', clickHandler);
 window.onload = checkTheme();
-// window.onload = document.body.classList.add('light-theme');
-// themeSwitcher.checked = false;
 
 function clickHandler(event) {
   if (event.target.checked) {
@@ -27,6 +25,8 @@ function checkTheme() {
 
   if (localStorageTheme) {
     document.body.className = localStorageTheme;
+  } else {
+        document.body.classList.add(Theme.LIGHT);
   }
 
   if (localStorageTheme === Theme.DARK) {
