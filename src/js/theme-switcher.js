@@ -21,13 +21,9 @@ function clickHandler(event) {
 }
 
 function checkTheme() {
-  const localStorageTheme = localStorage.getItem(STORAGE_KEY);
+  const localStorageTheme = localStorage.getItem(STORAGE_KEY) || Theme.LIGHT;
 
-  if (localStorageTheme) {
-    document.body.className = localStorageTheme;
-  } else {
-        document.body.classList.add(Theme.LIGHT);
-  }
+  document.body.classList.add(localStorageTheme);
 
   if (localStorageTheme === Theme.DARK) {
         themeSwitcher.checked = true;
